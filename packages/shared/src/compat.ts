@@ -13,6 +13,7 @@ export interface CompatibilityFeature {
 export type CompatibilityEnableFlag =
   | "streams_enable_constructors"
   | "transformstream_enable_standard_constructor"
+  | "export_commonjs_default"
   | "global_navigator"
   | "durable_object_fetch_requires_full_url"
   | "fetch_refuses_unknown_protocols"
@@ -21,6 +22,7 @@ export type CompatibilityEnableFlag =
 export type CompatibilityDisableFlag =
   | "streams_disable_constructors"
   | "transformstream_disable_standard_constructor"
+  | "export_commonjs_namespace"
   | "no_global_navigator"
   | "durable_object_fetch_allows_relative_url"
   | "fetch_treats_unknown_protocols_as_http"
@@ -39,6 +41,11 @@ const FEATURES: CompatibilityFeature[] = [
     defaultAsOf: "2022-11-30",
     enableFlag: "transformstream_enable_standard_constructor",
     disableFlag: "transformstream_disable_standard_constructor",
+  },
+  {
+    defaultAsOf: "2022-10-31",
+    enableFlag: "export_commonjs_default",
+    disableFlag: "export_commonjs_namespace",
   },
   {
     defaultAsOf: "2022-03-21",
